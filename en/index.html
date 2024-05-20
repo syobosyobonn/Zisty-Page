@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Syobosyobonn｜Zisty</title>
+  <meta name="keywords" content=" Zisty,ジスティー,Syobosyobonn,しょぼしょぼん">
+  <meta name="description"
+    content="Zisty is an open source decentralized social networking platform created by a team formed somewhat.。">
+  <meta name="copyright" content="Copyright &copy; 2024 Zisty. All rights reserved." />
+  <meta property="og:title" content="Zisty" />
+  <meta name="copyright" content="Copyright &copy; 2024 Zisty. All rights reserved." />
+  <meta property="og:title" content="Zisty" />
+  <meta property="og:image" content="https://zisty.net/images/screenshot.785.jpg">
+  <meta property="og:image:alt" content="Bunner image">
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zisty" />
+  <meta name="twitter:description"
+    content="Zisty is an open source decentralized social networking platform created by a team formed somewhat.">
+  <meta name="twitter:image:src" content />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="https://zisty.net/" />
+  <meta name="twitter:creator" content="https://zisty.net/" />
+  <meta name="twitter:title" content="Zisty" />
+  <meta name="twitter:description" content="https://zisty.net/" />
+  <meta name="twitter:image:src" content />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP:wght@400;500;900&display=swap');
+  </style>
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #333;
+      min-height: 100vh;
+      /* 画面の高さいっぱいに表示するために追加 */
+      overflow-x: hidden;
+      /* 横スクロールを禁止 */
+    }
+
+    a {
+      text-decoration: none;
+      /* リンクの下線を削除 */
+      color: #0066ff;
+    }
+
+
+
+    hr {
+      margin: 50px 20px 50px 20px;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #555;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .Tsu {
+      position: relative;
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+      margin-top: 10px;
+      max-width: 300px;
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      /* コンテンツを縦に配置 */
+      transition: all 0.3s ease;
+    }
+
+    .Tsu:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-container {
+      margin-top: auto;
+      /* ボタンを一番下に配置 */
+    }
+
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      z-index: 1000;
+      position: relative;
+    }
+
+    #languageBox {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 10px 10px 10px 10px;
+    }
+
+    #languageDropdown {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      z-index: 1;
+      border-radius: 10px;
+    }
+
+
+    #languageDropdown a {
+      display: block;
+      color: #333;
+      padding: 8px;
+      text-decoration: none;
+    }
+
+    #languageDropdown a:hover {
+      color: #0090a3;
+    }
+
+    /* 左側のリンクのスタイル */
+    .left-links {
+      order: 1;
+      /* 左側の要素を左側に配置 */
+    }
+
+    /* 右側のリンクのスタイル */
+    .right-links {
+      order: 2;
+      /* 右側の要素を右側に配置 */
+      margin-right: 19px;
+    }
+
+
+    .header-a {
+      text-decoration: none;
+      /* リンクの下線を削除 */
+      color: #fff;
+      /* リンクのテキスト色を設定 */
+      margin: 0 10px;
+      /* リンク間の間隔を設定 */
+    }
+
+    /* ホバーエフェクトを追加する場合のスタイル */
+    .header-a:hover {
+      text-decoration: underline;
+      /* マウスオーバー時にリンクを下線表示 */
+    }
+
+    .header-b {
+      text-decoration: none;
+      /* リンクの下線を削除 */
+      color: #fff;
+      /* リンクのテキスト色を設定 */
+      margin-right: 10px;
+    }
+
+    /* ホバーエフェクトを追加する場合のスタイル */
+    .header-b:hover {
+      text-decoration: underline;
+      /* マウスオーバー時にリンクを下線表示 */
+    }
+
+    .header-bar {
+      text-decoration: none;
+      /* リンクの下線を削除 */
+      color: #fff;
+      /* リンクのテキスト色を設定 */
+      margin: 0;
+      margin-right: 8px;
+      margin-left: -4px;
+    }
+
+    .fa-link {
+      font-size: 40px;
+    }
+
+    .fa-circle-exclamation {
+      font-size: 40px;
+    }
+
+    .fa-brands {
+      font-size: 18px;
+      transition: 0.5s;
+    }
+
+    .fa-brands:hover {
+      color: rgb(194, 194, 194);
+    }
+
+    .fa-paper-plane {
+      font-size: 16px;
+      transition: 0.5s;
+    }
+
+    .fa-paper-plane:hover {
+      color: rgb(194, 194, 194);
+    }
+
+    .fa-earth-americas {
+      font-size: 15px;
+      transition: 0.5s;
+    }
+
+    .fa-earth-americas:hover {
+      color: rgb(194, 194, 194);
+    }
+
+    .fa-earth-americas {
+      font-size: 15px;
+      transition: 0.5s;
+    }
+
+    .fa-earth-americas:hover {
+      color: rgb(194, 194, 194);
+    }
+
+    .fa-boxes-stacked {
+      font-size: 15px;
+      transition: 0.5s;
+    }
+
+    .fa-boxes-stacked:hover {
+      color: rgb(194, 194, 194);
+    }
+
+    .fa-youtube {
+      font-size: 20px;
+      transition: 0.5s;
+    }
+
+    .fa-youtube:hover {
+      color: rgb(194, 194, 194);
+    }
+
+    .hello {
+      margin-top: 50px;
+      font-size: 30px;
+      width: 700px;
+    }
+
+    .what {
+      color: #333333b4;
+      font-size: 26px;
+      margin-left: 20px;
+    }
+
+    .mizi {
+      margin-left: 10px;
+      color: #333333e1;
+      font-size: 20px;
+    }
+
+    .fancy-link {
+      font-family: 'Noto Sans JP', sans-serif;
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 1.125rem;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      border-radius: 20px;
+      transition: background-color 0.5s, box-shadow 0.5s;
+      /* トランジション時間を追加 */
+      color: #fdfefc;
+      box-shadow: 0 10px 25px 0 rgba(34, 34, 34, 0.5);
+      margin-top: 10px;
+    }
+
+    .fancy-link.default {
+      background: linear-gradient(to right, rgb(0, 255, 42), rgb(0, 189, 41));
+      transition: background-color 0.5s, box-shadow 0.5s;
+      /* トランジション時間を追加 */
+    }
+
+    .fancy-link.default:hover {
+      background: linear-gradient(to right, rgb(0, 206, 34), rgb(0, 224, 49));
+      box-shadow: 0 15px 30px 0 rgba(34, 34, 34, 0.7);
+      /* box-shadow の変更に対するアニメーション */
+    }
+
+    .fancy-link.default1 {
+      background: linear-gradient(to right, rgb(0, 247, 255), rgb(0, 129, 189));
+      transition: background-color 0.5s, box-shadow 0.5s;
+      /* トランジション時間を追加 */
+    }
+
+    .fancy-link.default1:hover {
+      background: linear-gradient(to right, rgb(0, 206, 206), rgb(0, 160, 224));
+      box-shadow: 0 15px 30px 0 rgba(34, 34, 34, 0.7);
+      /* box-shadow の変更に対するアニメーション */
+    }
+
+    .fancy-link.default2 {
+      background: linear-gradient(to right, rgb(55, 0, 255), rgb(167, 0, 189));
+      transition: background-color 0.5s, box-shadow 0.5s;
+      /* トランジション時間を追加 */
+    }
+
+    .fancy-link.default2:hover {
+      background: linear-gradient(to right, rgb(124, 0, 206), rgb(34, 0, 224));
+      box-shadow: 0 15px 30px 0 rgba(34, 34, 34, 0.7);
+      /* box-shadow の変更に対するアニメーション */
+    }
+
+    .fancy-link.default3 {
+      background: linear-gradient(to right, rgb(29, 160, 241), rgb(137, 199, 238));
+      transition: background-color 0.5s, box-shadow 0.5s;
+      /* トランジション時間を追加 */
+    }
+
+    .fancy-link.default3:hover {
+      background: linear-gradient(to right, rgb(137, 199, 238), rgb(29, 160, 241));
+      box-shadow: 0 15px 30px 0 rgba(34, 34, 34, 0.7);
+      /* box-shadow の変更に対するアニメーション */
+    }
+
+    .fancy-link.default5 {
+      background: linear-gradient(to right, rgb(241, 29, 29), rgb(255, 166, 0));
+      transition: background-color 0.5s, box-shadow 0.5s;
+      /* トランジション時間を追加 */
+    }
+
+    .fancy-link.default5:hover {
+      background: linear-gradient(to right, rgb(255, 166, 0), rgb(241, 29, 29));
+      box-shadow: 0 15px 30px 0 rgba(34, 34, 34, 0.7);
+      /* box-shadow の変更に対するアニメーション */
+    }
+
+    .fancy-link.default6 {
+      background: linear-gradient(to right, rgb(241, 29, 29), rgb(219, 111, 111));
+      transition: background-color 0.5s, box-shadow 0.5s;
+      /* トランジション時間を追加 */
+    }
+
+    .fancy-link.default6:hover {
+      background: linear-gradient(to right, rgb(219, 111, 111), rgb(241, 29, 29));
+      box-shadow: 0 15px 30px 0 rgba(34, 34, 34, 0.7);
+      /* box-shadow の変更に対するアニメーション */
+    }
+
+
+    .fa-play {
+      margin-right: 5px;
+    }
+
+    .fa-circle-info {
+      margin-right: 5px;
+    }
+
+    .fa-up-right-from-square {
+      margin-right: 5px;
+    }
+
+    .twitter {
+      margin-right: 5px;
+    }
+
+    .github {
+      margin-right: 5px;
+    }
+
+    .box {
+      margin-right: 5px;
+    }
+
+    .earth-icon {
+      margin-right: 5px;
+      font-size: 20px;
+    }
+
+    .boxbox {
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      padding: 20px;
+      background-color: #d1d1d17e;
+      color: #5c5c5c;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px 10px 10px 10px;
+    }
+
+    .icon {
+      font-size: 36px;
+    }
+
+    .bold-text {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .normal-text {
+      font-size: 16px;
+    }
+
+    #TopTitle {
+      font-size: 15px;
+      margin-top: 240px;
+      margin-bottom: 200px;
+      text-align: center;
+    }
+
+    .content {
+      position: relative;
+      padding-left: 70px;
+    }
+
+    .content::before {
+      margin-left: 60px;
+      content: "";
+      position: absolute;
+      /* 擬似要素の絶対位置を指定 */
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      /* 線の太さ */
+      background-color: #333;
+      /* 線の色 */
+    }
+
+    .content-r {
+      position: relative;
+      padding-left: 70px;
+    }
+
+    .content-r::before {
+      margin-left: 60px;
+      content: "";
+      position: absolute;
+      /* 擬似要素の絶対位置を指定 */
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      /* 線の太さ */
+      background-color: #7d0101;
+      /* 線の色 */
+    }
+
+    .content-g {
+      position: relative;
+      padding-left: 70px;
+    }
+
+    .content-g::before {
+      margin-left: 60px;
+      content: "";
+      position: absolute;
+      /* 擬似要素の絶対位置を指定 */
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      /* 線の太さ */
+      background-color: #028006;
+      /* 線の色 */
+    }
+
+    .content-b {
+      position: relative;
+      padding-left: 70px;
+    }
+
+    .content-b::before {
+      margin-left: 60px;
+      content: "";
+      position: absolute;
+      /* 擬似要素の絶対位置を指定 */
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      /* 線の太さ */
+      background-color: #190280;
+      /* 線の色 */
+    }
+
+    footer {
+      height: 40px;
+      background: #333;
+      padding-left: 10px;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      z-index: -1;
+      padding-top: 5px;
+
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="left-links">
+      <a class="header-a" href="/ja/"><i class="fa-solid fa-house"></i></a>
+      <a class="header-a" href="/ja/blog/">Blog</a>
+      <a class="header-a" href="/ja/status/">Status</a>
+    </div>
+    <div class="right-links">
+      <a class="header-b" href=""></a>
+      <a class="header-b" href="https://github.com/zisty-h"><i class="fa-solid fa-boxes-stacked"></i></a>
+      <a class="header-bar">｜</a>
+      <a class="header-b" id="header" onmouseover="showLanguageDropdown()" onmouseout="hideLanguageDropdown()"><i
+          class="fa-solid fa-earth-americas"></i></a>
+      <div id="languageDropdown" onmouseover="keepLanguageDropdownVisible()" onmouseout="hideLanguageDropdown()">
+        <a href="/en/">English</a>
+        <a href="/ja/">Japanese</a>
+      </div>
+    </div>
+  </div>
+  <main>
+
+    <div id="TopTitle">
+      <u>
+        <h1>Syobosyobonn's page</h1>
+      </u>
+    </div>
+
+    <div id="apps">
+      <div class="content-r">
+        <h2>PokeRed-BadApple!!</h2>
+        <p>~Bad Apple!!(Original) play program on first generation Pokemon~</p>
+        <p class="mizi">
+          This is my faviorite program code  on the first generation Pokemon.<br>
+          You can listning to Bad Apple!! on first generation Pokemon!<br>
+          It's so happy! hahaha!<br>
+          ...But only last ver & Japanese ver.(´・ω・`)
+        </p>
+        <a href="https://github.com/zisty-h/PokeRed-BadApple" class="fancy-link default2"><i
+            class="fa-brands fa-github github" aria-hidden="true"></i>Github</a>
+        <br>
+      </div>
+
+      <br>
+
+      <div class="content-r">
+        <h2>PokeRed-Byouga</h2>
+        <p>~Monochrome image drawing program on first generation Pokemon.~</p>
+        <p class="mizi">
+          It's so simple!Drawing monochrome image!<br>
+          It's that only!<br>
+          ...But only last ver & Japanese ver too.(´・ω・`)
+        </p>
+        <a href="https://syobosyobonn.github.io/PokeRed-Byouga/index.html" class="fancy-link default6"><i
+            class="fa-solid fa-earth-americas earth-icon"></i> Open</a>
+        <a href="https://github.com/zisty-h/PokeRed-Byouga" class="fancy-link default2"><i
+            class="fa-brands fa-github github" aria-hidden="true"></i>Github</a>
+      </div>
+
+      <br>
+
+      <div class="content-g">
+        <h2>Cat-JP-for-CSharp</h2>
+        <p>~displaying the contents of text files with Japanese language support Program.~</p>
+        <p class="mizi">
+          cat command is now supported in Japanese★<br>
+          Nothing more, nothing less★<br>
+          Also, tanahiro2010 made a program in python that does the same thing, <br>
+          so please check that out too!
+        </p>
+        <a href="https://github.com/zisty-h/cat-command-Japanese-support" class="fancy-link default2"><i
+            class="fa-brands fa-github github" aria-hidden="true"></i>Github</a>
+        <br>
+      </div>
+
+      <br><br>
+
+    </div>
+
+    <div>
+      <div class="content">
+        <h2>Syobosyobonn</h2>
+        <p>~Doing something they don't understand member~</p>
+        <p class="mizi">
+          It really is just as it should be.<br>
+          Hum....So I can using Z80,HTML,C#<br>
+          And I drawing good design and bad design.
+          Yeah.
+        </p>
+        <a href="https://lit.link/Syobosyobonn" class="fancy-link default1"><i
+            class="fa-solid fa-earth-americas earth-icon"></i>Learn about more(japanese-only)</a>
+        <br>
+      </div>
+    </div>
+
+    <br><br><br><br>
+
+  </main>
+  <footer>
+    <p>───2024 Syobosyobonn</p>
+  </footer>
+  <script>
+    // JavaScriptで言語選択のドロップダウンメニューの表示/非表示を制御
+    function showLanguageDropdown() {
+      document.getElementById("languageDropdown").style.display = "block";
+    }
+
+    function hideLanguageDropdown() {
+      document.getElementById("languageDropdown").style.display = "none";
+    }
+
+    // 言語選択メニュー上でマウスがある場合も非表示にしない
+    function keepLanguageDropdownVisible() {
+      document.getElementById("languageDropdown").style.display = "block";
+    }
+  </script>
+  <script src="https://kit.fontawesome.com/e9265fc05b.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
