@@ -507,6 +507,25 @@
       /* 線の色 */
     }
 
+    .content-y {
+      position: relative;
+      padding-left: 70px;
+    }
+
+    .content-y::before {
+      margin-left: 60px;
+      content: "";
+      position: absolute;
+      /* 擬似要素の絶対位置を指定 */
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      /* 線の太さ */
+      background-color: #7a8002;
+      /* 線の色 */
+    }
+
     footer {
       height: 40px;
       background: #333;
@@ -595,6 +614,21 @@
           是非そっちも見てね!!
         </p>
         <a href="https://github.com/zisty-h/cat-command-Japanese-support" class="fancy-link default2"><i
+            class="fa-brands fa-github github" aria-hidden="true"></i>Github</a>
+        <br>
+      </div>
+
+      <br>
+
+      <div class="content-y">
+        <h2>Important Message Alerter</h2>
+        <p>~重要メッセージを通知するDiscordBot~</p>
+        <p class="mizi">
+          んーっと...はい<br>
+          重要なメッセージをDMに送ってくれるBotです<br>
+          まあ、詳しくはリポジトリのReadMeを見てね!<br>
+        </p>
+        <a href="https://github.com/zisty-h/Important-Message-Alerter" class="fancy-link default2"><i
             class="fa-brands fa-github github" aria-hidden="true"></i>Github</a>
         <br>
       </div>
