@@ -1,14 +1,12 @@
 body {
-    font-family: 'Noto Sans JP', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    color: #333;
-    min-height: 100vh;
-    /* 画面の高さいっぱいに表示するために追加 */
-    overflow-x: hidden;
-    /* 横スクロールを禁止 */
-  }
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #181a1b;
+  color: #c2c3bc;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
   a {
     text-decoration: none;
